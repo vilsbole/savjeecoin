@@ -1,3 +1,4 @@
+import isEqual from 'lodash.isequal'
 import Block from './block'
 
 class Blockchain {
@@ -36,13 +37,13 @@ class Blockchain {
       }
     }
 
-      // Check the genesis block
-      if(this.chain[0] !== this.createGenesisBlock()){
-      	return false;
-      }
+    // Check the genesis block
+    if (!isEqual(this.chain[0], this.createGenesisBlock())){
+    	return false;
+    }
 
-      // If we managed to get here, the chain is valid!
-      return true;
+    // If we managed to get here, the chain is valid!
+    return true;
   }
 
 }
